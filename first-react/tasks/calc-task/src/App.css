@@ -1,0 +1,26 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+/* *{
+  border: 1px black solid;
+} */
+
+.calculator {
+  padding: 2em;
+  display: flex;
+}
+
+.numberpad {
+  width: 400px;
+  justify-content: space-between;
+  padding: 1em;
+}
+
+.numberpad button{
+  width: 30%;
+  margin: 4px;
+
+}
