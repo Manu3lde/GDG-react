@@ -1,0 +1,99 @@
+.root,
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: linear-gradient(180deg, #071028, #031028 60%);
+  font-family: Inter, system-ui, -apple-system;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: #e6eef8;
+}
+
+.members-card {
+  width: 320px;
+  max-width: 100%;
+  background: linear-gradient(180deg, #0d1b2a, rgba(8, 16, 30, 0.95));
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  margin: 20px;
+}
+
+.header {
+  height: 84px;
+  background-color: #07243a;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-40%);
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 22px rgba(2, 6, 23, 0.5);
+}
+
+.avatar img {
+  width: 88px;
+  height: 88px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  display: block;
+}
+
+.card-body {
+  padding: 56px 22px 22px;
+  text-align: center;
+}
+
+.user-meta {
+  padding-top: 4px;
+}
+
+.name {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #e6eef8;
+}
+
+.role {
+  margin: 6px 0 0;
+  font-size: 0.9rem;
+  color: #6ee7b7;
+  font-weight: 600;
+}
+
+.user-bio {
+  margin-top: 12px;
+  color: #9aa6b2;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 420px) {
+  .members-card {
+    width: 100%;
+    border-radius: 12px;
+  }
+  .avatar {
+    width: 84px;
+    height: 84px;
+  }
+  .avatar img {
+    width: 76px;
+    height: 76px;
+  }
+}
