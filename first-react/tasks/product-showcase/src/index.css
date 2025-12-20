@@ -1,0 +1,330 @@
+.root,
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: linear-gradient(135deg, #071028 0%, #031028 60%, #0a1a3a 100%);
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 2rem;
+  color: #e6eef8;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Add subtle background pattern */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+      circle at 20% 30%,
+      rgba(56, 92, 170, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(100, 149, 237, 0.08) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+}
+
+/* Grid container for cards */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  justify-content: center;
+  padding: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Individual card styling */
+.product-card {
+  width: 100%;
+  background: linear-gradient(
+    145deg,
+    rgba(13, 27, 42, 0.95),
+    rgba(8, 16, 30, 0.85)
+  );
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  backdrop-filter: blur(10px);
+  position: relative;
+  isolation: isolate;
+}
+
+/* Card hover effect with glow */
+.product-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(2, 6, 23, 0.6), 0 0 30px rgba(56, 92, 170, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  border-color: rgba(100, 149, 237, 0.3);
+}
+
+/* Card glow effect on hover */
+.product-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(100, 149, 237, 0.4),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.product-card:hover::after {
+  opacity: 1;
+}
+
+/* Header with gradient background */
+.header {
+  height: 100px;
+  background: linear-gradient(135deg, #07243a 0%, #0a3362 100%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  overflow: hidden;
+}
+
+/* Header decorative elements */
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #3b82f6);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite linear;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Product image with modern styling */
+img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  margin: 20px;
+  z-index: 2;
+}
+
+.product-card:hover img {
+  border-color: #ffffff;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(100, 149, 237, 0.5),
+    0 0 20px rgba(100, 149, 237, 0.3);
+  transform: scale(1.05);
+}
+
+/* Card body with improved spacing */
+.card-body {
+  padding: 20px 28px 28px;
+  text-align: center;
+  position: relative;
+}
+
+/* Product name with gradient text */
+.name {
+  margin: 0 0 12px 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #e6eef8;
+  background: linear-gradient(135deg, #e6eef8 0%, #a5c1ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.01em;
+}
+
+/* Status badges */
+.outOfstock,
+.featured,
+.status {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-top: 8px;
+  transition: all 0.3s ease;
+}
+
+.outOfstock {
+  background: linear-gradient(
+    135deg,
+    rgba(112, 4, 4, 0.2),
+    rgba(112, 4, 4, 0.1)
+  );
+  color: #ff6b6b;
+  border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+.featured {
+  background: linear-gradient(
+    135deg,
+    rgba(222, 211, 0, 0.2),
+    rgba(222, 211, 0, 0.1)
+  );
+  color: #f7d347;
+  margin: 0 10px;
+  border: 1px solid rgba(247, 211, 71, 0.3);
+}
+
+/* Add price styling */
+.price {
+  font-size: 2em;
+  font-weight: 800;
+  color: #3b82f6;
+  margin: 15px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Add rating stars */
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  body {
+    padding: 1rem;
+  }
+
+  .product-card {
+    border-radius: 18px;
+  }
+
+  .header {
+    height: 90px;
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .name {
+    font-size: 1.15rem;
+  }
+  /* .price {
+    font-size: 0.5rem;
+  } */
+}
+
+@media (max-width: 640px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    gap: 1.25rem;
+  }
+
+  .product-card {
+    max-width: 100%;
+  }
+
+  .card-body {
+    padding: 65px 24px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0.75rem;
+  }
+
+  .product-grid {
+    padding: 0.75rem;
+    gap: 1rem;
+  }
+
+  .name {
+    font-size: 1.1rem;
+  }
+
+  /* .price {
+    font-size: 1.35rem;
+  } */
+}
+
+/* Loading animation for cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-card {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+/* Stagger animation for grid items */
+.product-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.product-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.product-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.product-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.product-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.product-card:nth-child(6) {
+  animation-delay: 0.6s;
+}
