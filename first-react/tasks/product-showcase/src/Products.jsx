@@ -1,6 +1,6 @@
-function Products(product) {
-  // member’s name, role, photo, and a short bio
+import PropTypes from "prop-types";
 
+function Products(product) {
   return (
     <div className="product-grid">
       <div className="product-card">
@@ -21,7 +21,14 @@ function Products(product) {
     </div>
   );
 }
-
+Products.PropTypes = {
+  id: PropTypes.number,
+  price: PropTypes.number,
+  image: PropTypes.any,
+  name: PropTypes.string,
+  inStock: PropTypes.bool,
+  isFeatured: PropTypes.bool,
+};
 // Members.propTypes = {
 //   name: PropTypes.string,
 //   role: PropTypes.string,

@@ -16,9 +16,11 @@ function Home() {
         </h1>
         <p className="subtitle">Browse a small curated list of books</p>
 
-        <div className="movie-grid">
+        <button> Discover More</button>
+
+        <div className="book-grid">
           {Books.map(book => (
-            <div className="movie-card" key={book.id}>
+            <div className="book-card" key={book.id}>
               <Link to={`/book/${book.id}`}>
                 <img src={book.cover} alt={book.title} />
               </Link>
